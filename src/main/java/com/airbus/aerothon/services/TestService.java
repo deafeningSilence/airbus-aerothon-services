@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.airbus.aerothon.dao.TestRepository;
-import com.airbus.aerothon.entities.Test;
+import com.airbus.aerothon.entities.impl.Test;
 import com.google.common.collect.Lists;
 
 @Service
