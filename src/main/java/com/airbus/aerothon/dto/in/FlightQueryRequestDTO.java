@@ -8,4 +8,6 @@ public class FlightQueryRequestDTO {
 	Integer limit;
 	Integer offset;
 	String searchTerm;
+	Integer sourceAirportId;
+	Integer destinationAirportId;
 }

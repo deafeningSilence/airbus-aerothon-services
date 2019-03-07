@@ -28,7 +28,6 @@ public class FlightService {
 	
 	public List<Flight> getFlights(FlightQueryRequestDTO flightQueryRequestDTO) {
 		return flightRepository.getFlights(flightQueryRequestDTO);
-		//return Lists.newArrayList(flightRepository.findAll());
 	}
 
 	public Flight addFlight(Flight flight) {
