@@ -19,22 +19,28 @@ import com.airbus.aerothon.predicate.FlightPredicateBuilder;
 import com.airbus.aerothon.repository.IFlightRepositoryCustom;
 
 @Service
-public class FlightRepositoryImpl implements IFlightRepositoryCustom{
+public class FlightRepositoryImpl implements IFlightRepositoryCustom {
 
 	@PersistenceContext
 	private EntityManager em;
-	
+
 	@Autowired
 	private FlightPredicateBuilder flightPredicateBuilder;
-	
+
 	@Override
 	public List<Flight> getFlights(FlightQueryRequestDTO flightQueryRequestDTO) {
 		CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
 		CriteriaQuery criteriaQuery = (CriteriaQuery) criteriaBuilder.createQuery(Flight.class);
 		Root root = (Root) criteriaQuery.from(Flight.class);
-		List<Predicate> predicates = flightPredicateBuilder.buildPredicates(flightQueryRequestDTO, criteriaBuilder, root);
-		CriteriaQuery selectQuery = criteriaQuery.select(root).distinct(true).where(predicates.toArray(new Predicate[] {}));
+		List<Predicate> predicates = flightPredicateBuilder.buildPredicates(flightQueryRequestDTO, criteriaBuilder,
+				root);
+		CriteriaQuery selectQuery = criteriaQuery.select(root).distinct(true)
+				.where(predicates.toArray(new Predicate[] {}));
 		TypedQuery typedQuery = em.createQuery(selectQuery);
+		if (flightQueryRequestDTO.getLimit() != null && flightQueryRequestDTO.getOffset() != null) {
+			typedQuery.setFirstResult(flightQueryRequestDTO.getOffset());
+			typedQuery.setMaxResults(flightQueryRequestDTO.getLimit());
+		}
 		return typedQuery.getResultList();
 	}
 

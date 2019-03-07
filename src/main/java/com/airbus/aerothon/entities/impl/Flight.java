@@ -33,9 +33,6 @@ public class Flight extends AbstractBaseEntity{
 	@Column(name = "ROOM_TEMP")
 	private Integer roomTemp;
 	
-	@Column(name = "AIRPORT")
-	private String airport;
-	
 	@Column(name = "FCAP_LWING")
 	private Integer fcapLwing;
 	
