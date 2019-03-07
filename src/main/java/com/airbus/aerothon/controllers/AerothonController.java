@@ -7,18 +7,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.airbus.aerothon.entities.impl.Test;
-import com.airbus.aerothon.services.TestService;
+import com.airbus.aerothon.entities.impl.NewsFeed;
+import com.airbus.aerothon.services.NewsFeedService;
 
 @RestController
 @RequestMapping("/aerothon")
 public class AerothonController {
 
 	@Autowired
-	TestService testService;
+	NewsFeedService newsFeedService;
 	
-	@GetMapping
-	public List<Test> getTests() {
-		return testService.getTests();
+	@GetMapping("/news")
+	public List<NewsFeed> getNewsFeeds() {
+		return newsFeedService.getNewsFeeds();
 	}
 }

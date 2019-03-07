@@ -11,6 +11,6 @@ import lombok.Data;
 public abstract class AbstractBaseEntity {
 	
 	@Id
-	@Column(name="id")
+	@Column(name="ID")
 	private Integer id;
 }
