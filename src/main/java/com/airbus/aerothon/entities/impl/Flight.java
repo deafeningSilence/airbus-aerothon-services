@@ -55,4 +55,13 @@ public class Flight extends AbstractBaseEntity{
 	@JoinColumn(name = "PROGRAM_ID")
 	private Program program;
 	
+	
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name = "SRC_ID")
+	private Airport sourceAirport;
+	
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name = "DEST_ID")
+	private Airport destinationAirport;
+	
 }

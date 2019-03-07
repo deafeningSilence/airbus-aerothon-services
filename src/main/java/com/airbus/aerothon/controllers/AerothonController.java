@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.airbus.aerothon.dto.in.FlightQueryRequestDTO;
+import com.airbus.aerothon.entities.impl.Airport;
 import com.airbus.aerothon.entities.impl.Flight;
 import com.airbus.aerothon.entities.impl.NewsFeed;
 import com.airbus.aerothon.entities.impl.Program;
+import com.airbus.aerothon.services.AirportService;
 import com.airbus.aerothon.services.FlightService;
 import com.airbus.aerothon.services.NewsFeedService;
 import com.airbus.aerothon.services.ProgramService;
@@ -33,6 +35,9 @@ public class AerothonController {
 
 	@Autowired
 	FlightService flightService;
+	
+	@Autowired
+	AirportService airportService;
 
 	// NEWS - INDEX
 	@GetMapping("/news")
@@ -44,6 +49,12 @@ public class AerothonController {
 	@GetMapping("/program")
 	public List<Program> getPrograms() {
 		return programService.getPrograms();
+	}
+	
+	// AIRPORT - INDEX
+	@GetMapping("/airport")
+	public List<Airport> getAirports() {
+		return airportService.getAirports();
 	}
 
 	// FLIGHT - INDEX
