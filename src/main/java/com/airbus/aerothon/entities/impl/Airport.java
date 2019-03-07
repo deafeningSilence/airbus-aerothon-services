@@ -16,7 +16,7 @@ import lombok.EqualsAndHashCode;
 public class Airport extends AbstractBaseEntity{
 
 	@Column(name="AIRPORT_NAME")
-	private String programName;
+	private String airportName;
 	
 	@Column(name="AIRPORT_SYMBOL")
 	private String airportSymbol;
