@@ -19,7 +19,7 @@ import lombok.EqualsAndHashCode;
 public class Flight extends AbstractBaseEntity{
 
 	@Column(name = "MSN")
-	private Integer msn;
+	private String msn;
 	
 	@Column(name = "HARNESS_LENGTH")
 	private Integer harnessLength;

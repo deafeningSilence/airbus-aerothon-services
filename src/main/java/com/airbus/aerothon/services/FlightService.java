@@ -22,7 +22,8 @@ public class FlightService {
 	ProgramRepository programRepository;
 	
 	public List<Flight> getFlights(FlightQueryRequestDTO flightQueryRequestDTO) {
-		return Lists.newArrayList(flightRepository.findAll());
+		return flightRepository.getFlights(flightQueryRequestDTO);
+		//return Lists.newArrayList(flightRepository.findAll());
 	}
 
 	public Flight addFlight(Flight flight) {
